@@ -1,0 +1,50 @@
+[language-server.pylsp.config.pylsp.plugins]
+black = { enabled = true }
+mccabe = { threshold = 50 }
+mypy = { enabled = true }
+pycodestyle = { enabled = true, ignore = [ "E201", "E501" ] }
+
+[language-server.rustup-rust-analyzer]
+command = "rustup"
+args = [ "run", "stable", "rust-analyzer" ] 
+
+[language-server.rustup-rust-analyzer.config.rustfmt]
+extraArgs = [ "+nightly" ]
+
+[language-server.verible-verilog-ls]
+command = "verible-verilog-ls"
+
+[[language]]
+name = "cpp"
+auto-format = true
+
+[[language]]
+name = "rust"
+language-servers = [ "rustup-rust-analyzer" ]
+
+[[language]]
+name = "javascript"
+auto-format = true
+
+[[language]]
+name = "json"
+auto-format = false
+
+[[language]]
+name = "ocaml"
+auto-format = true
+
+[[language]]
+name = "python"
+auto-format = true
+
+[[language]]
+name = "verilog"
+auto-format = true
+formatter = { command = "verible-verilog-format" , args = ["-"] }
+indent = { tab-width = 2, unit = " " }
+language-servers = [ "verible-verilog-ls" ]
+
+[[language]]
+name = "yaml"
+auto-format = true

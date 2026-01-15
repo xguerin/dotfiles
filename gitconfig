@@ -1,0 +1,88 @@
+[user]
+  name = Xavier R. Guérin
+  email = xguerin@users.noreply.github.com
+[core]
+  preloadindex = true
+  editor = hx
+  excludesfile = /Users/xguerin/.gitignore_global
+[branch]
+  autosetuprebase = remote
+  autosetuppreservemerges = remote
+[branch "master"]
+  rebase = true
+  preservemerges = true
+[status]
+  submodulesummary = true
+[push]
+  default = tracking
+[gc]
+  auto = 2500
+[alias]
+  bp = !sh -c 'git push -u origin $(git branch --show-current)'
+  br = branch
+  bra = branch -a
+  brd = branch -d
+  brdd = branch -D
+  brm = branch -m
+  ci = commit
+  cia = commit --amend
+  ciah = commit --amend -C HEAD
+  cfa = config --add
+  cfl = config -l
+  cfu = config --unset
+  cf = config
+  co = checkout
+  cob = checkout -b
+  cp = cherry-pick
+  dn = diff --name-only
+  dt = difftool
+  ll = log-compact -20 --decorate
+  lg = log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s" --simplify-by-decoration
+  pf = push -f
+  rl = remote
+  rd = remote rm
+  ra = remote add
+  rm = remote rename
+  ss = status -s -uno -b
+  ssa = status -s -unormal -b
+  sm = submodule
+  sma = submodule add
+  smi = submodule init
+  smu = submodule update
+  sms = submodule status
+  smy = submodule sync
+  stc = stash clear
+  std = stash drop
+  stp = stash pop
+  stl = stash list
+  sts = stash show
+  tga = tag -a
+  tgl = tag -l -n10
+  tgd = tag -d
+  rld = !git-reload
+  rln = !sh -c 'git log --oneline $(git rev-parse --abbrev-ref $2) --no-merges --not $1 | format_release_notes.rb' -
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[push]
+  default = tracking
+[diff]
+  tool = vimdiff
+  external = difft
+[merge]
+  tool = vimdiff  
+  external = difft
+[difftool]
+  prompt = false
+[fetch]
+  prune = true
+[pull]
+	rebase = true
+[init]
+	defaultBranch = master
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
